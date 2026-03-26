@@ -133,17 +133,17 @@ graph LR
 | Subagent | 由 Controller 分派的、具有独立上下文窗口的子智能体，每个任务使用全新 Subagent | [01-core-workflow/01](./01-core-workflow/01-seven-step-workflow.md) |
 | Hook | 在会话生命周期事件（如启动、压缩）时自动执行的脚本，用于注入 Skill 上下文 | [05-platform-integration/01](./05-platform-integration/01-hooks-system.md) |
 | Command | 用户可手动触发的操作入口（如 `/brainstorm`、`/write-plan`），映射到对应 Skill | [04-commands/01](./04-commands/01-brainstorm.md) |
-| TDD | Test-Driven Development，测试驱动开发：先写失败测试 → 写最小实现 → 重构 | [02-skills/04](./02-skills/04-test-driven-development.md) |
-| Red-Green-Refactor | TDD 的三阶段循环：Red（测试失败）→ Green（测试通过）→ Refactor（重构优化） | [02-skills/04](./02-skills/04-test-driven-development.md) |
+| TDD | Test-Driven Development，测试驱动开发：先写失败测试 → 写最小实现 → 重构 | [02-skills/05](./02-skills/05-test-driven-development.md) |
+| Red-Green-Refactor | TDD 的三阶段循环：Red（测试失败）→ Green（测试通过）→ Refactor（重构优化） | [02-skills/05](./02-skills/05-test-driven-development.md) |
 | Iron Law | 不可违反的工程铁律，违反即终止流程。Superpowers 有三条：TDD、Debugging、Verification | [01-core-workflow/01](./01-core-workflow/01-seven-step-workflow.md) |
 | YAGNI | You Aren't Gonna Need It，不实现 Spec 未要求的功能，防止 Agent 过度实现 | [01-core-workflow/01](./01-core-workflow/01-seven-step-workflow.md) |
 | CSO | Claude Search Optimization，Skill 的 `description` 字段只写触发条件不写流程摘要，防止 Agent 走捷径跳过完整 Skill 内容 | [07-advanced/01](./07-advanced/01-skill-design-patterns.md) |
 | Rationalization | Agent 为跳过 Skill 而自我合理化的思维模式（如"这只是个简单问题"），是 Superpowers 重点防范的行为 | [02-skills/00](./02-skills/00-using-superpowers.md) |
-| Worktree | Git Worktree，用于在独立目录中创建隔离的开发分支，避免影响主分支 | [02-skills/09](./02-skills/09-using-git-worktrees.md) |
-| Controller | Subagent-Driven Development 中的调度者角色，负责读取计划、分派任务、审查结果 | [02-skills/06](./02-skills/06-subagent-driven-development.md) |
-| Implementer | Subagent-Driven Development 中的执行者角色，负责写代码、运行测试、提交、自审 | [02-skills/06](./02-skills/06-subagent-driven-development.md) |
-| Spec Reviewer | 双重审查第一阶段的审查者，验证代码是否严格符合 Spec 要求（不多不少） | [02-skills/06](./02-skills/06-subagent-driven-development.md) |
-| Code Quality Reviewer | 双重审查第二阶段的审查者，验证实现质量、代码模式和可维护性 | [02-skills/06](./02-skills/06-subagent-driven-development.md) |
+| Worktree | Git Worktree，用于在独立目录中创建隔离的开发分支，避免影响主分支 | [02-skills/11](./02-skills/11-using-git-worktrees.md) |
+| Controller | Subagent-Driven Development 中的调度者角色，负责读取计划、分派任务、审查结果 | [02-skills/04](./02-skills/04-subagent-driven-development.md) |
+| Implementer | Subagent-Driven Development 中的执行者角色，负责写代码、运行测试、提交、自审 | [02-skills/04](./02-skills/04-subagent-driven-development.md) |
+| Spec Reviewer | 双重审查第一阶段的审查者，验证代码是否严格符合 Spec 要求（不多不少） | [02-skills/04](./02-skills/04-subagent-driven-development.md) |
+| Code Quality Reviewer | 双重审查第二阶段的审查者，验证实现质量、代码模式和可维护性 | [02-skills/04](./02-skills/04-subagent-driven-development.md) |
 
 ---
 
@@ -152,14 +152,14 @@ graph LR
 ### 第零章 · 概览
 
 - [01 - 什么是 Superpowers](./00-overview/01-what-is-superpowers.md)
-- [02 - 安装指南](./00-overview/02-installation.md)
-- [03 - 核心概念](./00-overview/03-core-concepts.md)
+- [02 - 系统架构](./00-overview/02-architecture.md)
+- [03 - 安装指南](./00-overview/03-installation.md)
 - [04 - 快速开始](./00-overview/04-quickstart.md)
 
 ### 第一章 · 核心工作流
 
 - [01 - 七步工作流](./01-core-workflow/01-seven-step-workflow.md)
-- [02 - Skill 触发机制](./01-core-workflow/02-skill-activation.md)
+- [02 - Skill 生命周期](./01-core-workflow/02-skill-lifecycle.md)
 - [03 - 指令优先级](./01-core-workflow/03-instruction-priority.md)
 
 ### 第二章 · Skills 详解
@@ -168,15 +168,15 @@ graph LR
 - [01 - Brainstorming（头脑风暴）](./02-skills/01-brainstorming.md)
 - [02 - Writing Plans（编写计划）](./02-skills/02-writing-plans.md)
 - [03 - Executing Plans（执行计划）](./02-skills/03-executing-plans.md)
-- [04 - Test-Driven Development（测试驱动开发）](./02-skills/04-test-driven-development.md)
-- [05 - Systematic Debugging（系统化调试）](./02-skills/05-systematic-debugging.md)
-- [06 - Subagent-Driven Development（子智能体驱动开发）](./02-skills/06-subagent-driven-development.md)
-- [07 - Dispatching Parallel Agents（并行 Agent 调度）](./02-skills/07-dispatching-parallel-agents.md)
+- [04 - Subagent-Driven Development（子智能体驱动开发）](./02-skills/04-subagent-driven-development.md)
+- [05 - Test-Driven Development（测试驱动开发）](./02-skills/05-test-driven-development.md)
+- [06 - Systematic Debugging（系统化调试）](./02-skills/06-systematic-debugging.md)
+- [07 - Verification Before Completion（完成前验证）](./02-skills/07-verification-before-completion.md)
 - [08 - Requesting Code Review（请求代码评审）](./02-skills/08-requesting-code-review.md)
-- [09 - Using Git Worktrees（使用 Git Worktree）](./02-skills/09-using-git-worktrees.md)
-- [10 - Finishing a Development Branch（完成开发分支）](./02-skills/10-finishing-a-development-branch.md)
-- [11 - Receiving Code Review（接收代码评审）](./02-skills/11-receiving-code-review.md)
-- [12 - Verification Before Completion（完成前验证）](./02-skills/12-verification-before-completion.md)
+- [09 - Receiving Code Review（接收代码评审）](./02-skills/09-receiving-code-review.md)
+- [10 - Dispatching Parallel Agents（并行 Agent 调度）](./02-skills/10-dispatching-parallel-agents.md)
+- [11 - Using Git Worktrees（使用 Git Worktree）](./02-skills/11-using-git-worktrees.md)
+- [12 - Finishing a Development Branch（完成开发分支）](./02-skills/12-finishing-a-development-branch.md)
 - [13 - Writing Skills（编写 Skill）](./02-skills/13-writing-skills.md)
 
 ### 第三章 · Agents
