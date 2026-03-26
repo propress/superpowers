@@ -54,7 +54,7 @@ timeline
 
 | 变更 | 影响 | 迁移要求 |
 |------|------|---------|
-| Spec/Plan 目录重构 | `docs/plans/` → `docs/superpowers/specs/` + `docs/superpowers/plans/` | 移动现有文件 |
+| Spec/Plan 目录重构 | `docs/plans/` → `docs/superpowers/specs/` + `docs/superpowers/plans/` | 移动现有文件（详见[迁移指南](./02-migration-guide.md#5-从-v43x-迁移到-v500)） |
 | SDD 强制化 | 在有 Subagent 能力的平台上，subagent-driven-development 不再可选 | 无需迁移 |
 | executing-plans 不再分批 | 移除"执行 3 个任务后暂停审查"模式 | 无需迁移 |
 | Slash Commands 废弃 | `/brainstorm`、`/write-plan`、`/execute-plan` 显示废弃通知 | 改用对应 Skill |
